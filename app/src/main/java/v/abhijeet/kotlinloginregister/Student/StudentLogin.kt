@@ -6,12 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_add_student.*
 import kotlinx.android.synthetic.main.activity_student_login.*
 import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
 import v.abhijeet.kotlinloginregister.R
-import v.abhijeet.kotlinloginregister.Teacher.AddStudentandTask
-import v.abhijeet.kotlinloginregister.Teacher.AddTask
+
 
 class StudentLogin : AppCompatActivity() {
     private lateinit var database : FirebaseDatabase
@@ -28,8 +26,8 @@ class StudentLogin : AppCompatActivity() {
     }
 
     private fun gotoStudentlogin() {
-        var studentname = studentloginname.text.toString().trim()
-        var id = studentloginid.text.toString().trim()
+        val studentname = studentloginname.text.toString().trim()
+        val id = studentloginid.text.toString().trim()
 
 
         if(studentname.isEmpty() || id.isEmpty()){
@@ -48,12 +46,12 @@ class StudentLogin : AppCompatActivity() {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
 
-                var list = ArrayList<Studentdetails>()
+                val list = ArrayList<Studentdetails>()
                 var isemailexist = false
 
                 for(postsnapshot in dataSnapshot.children)
                 {
-                    var value = postsnapshot.getValue(Studentdetails::class.java)
+                    val value = postsnapshot.getValue(Studentdetails::class.java)
 
                     if(value!!.studentname == studentname  && value!!.id == id)
                     {
