@@ -2,15 +2,12 @@ package v.abhijeet.kotlinloginregister.Student
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.EditText
-import android.widget.TextView
+
 import android.widget.Toast
-import com.google.firebase.FirebaseError
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_my_assignment.*
-import kotlinx.android.synthetic.main.activity_student_login.*
+
 import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
 import v.abhijeet.kotlinloginregister.DatabaseModel.Taskdetails
 import v.abhijeet.kotlinloginregister.R
@@ -27,9 +24,9 @@ class MyAssignment : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_my_assignment)
 
-        var strUser: String? = intent.getStringExtra("firebasekey")
+        val strUser: String? = intent.getStringExtra("firebasekey")
 
-        var firekey = strUser.toString()
+        val firekey = strUser.toString()
 
         database = FirebaseDatabase.getInstance()
         reference = database.getReference("Students").child(firekey)
@@ -55,13 +52,13 @@ class MyAssignment : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
 
-                var value  = dataSnapshot.getValue(Studentdetails::class.java)
+                val value  = dataSnapshot.getValue(Studentdetails::class.java)
 
 
                 if (value != null)
                 {
 
-                    var name : String = value.studentname
+                    val name : String = value.studentname
 
                     et_name.setText(name)
 
@@ -89,17 +86,17 @@ class MyAssignment : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
 
-                var tasks = dataSnapshot.getValue(Taskdetails::class.java)
+                val tasks = dataSnapshot.getValue(Taskdetails::class.java)
 
 
 
 
                 if(tasks != null)
                 {
-                    var sub1 : String = tasks.subject1
-                    var sub2: String = tasks.subject2
-                    var sub3 : String = tasks.subject3
-                    var sub4 : String = tasks.subject4
+                    val sub1 : String = tasks.subject1
+                    val sub2: String = tasks.subject2
+                    val sub3 : String = tasks.subject3
+                    val sub4 : String = tasks.subject4
 
                     et_sub1.setText(sub1)
                     et_sub2.setText(sub2)
