@@ -3,7 +3,7 @@ package v.abhijeet.kotlinloginregister
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -29,11 +29,11 @@ class Registration : AppCompatActivity() {
     }
 
     private fun teacherregsiter() {
-        var Teachername = findViewById<EditText>(R.id.teacherName)
-        var teacherid = findViewById<EditText>(R.id.teacher_id)
-        var Email = findViewById<EditText>(R.id.teacher_email)
-        var Password = findViewById<EditText>(R.id.teacher_Password)
-        var confirmPass = findViewById<EditText>(R.id.teacher_confirmPassword)
+        val Teachername = findViewById<EditText>(R.id.teacherName)
+        val teacherid = findViewById<EditText>(R.id.teacher_id)
+        val Email = findViewById<EditText>(R.id.teacher_email)
+        val Password = findViewById<EditText>(R.id.teacher_Password)
+        val confirmPass = findViewById<EditText>(R.id.teacher_confirmPassword)
 
         val email: String = Email.text.toString()
         val password: String = Password.text.toString()
