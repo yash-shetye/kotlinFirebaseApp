@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "140052802281",
+    "project_id": "kotlinlogin-b35de",
+    "storage_bucket": "kotlinlogin-b35de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:140052802281:android:2dda697ac87fd4d465de78",
+        "android_client_info": {
+          "package_name": "v.abhijeet.kotlinloginregister"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "140052802281-506goelr8aoos6qucq61oqd1urf6mqhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtsaT8SzalKhxEO7pjHXti4YYymoW8bTg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "140052802281-506goelr8aoos6qucq61oqd1urf6mqhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

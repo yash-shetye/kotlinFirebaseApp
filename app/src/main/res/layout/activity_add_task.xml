@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/school6"
+    android:focusableInTouchMode="true"
+    android:gravity="center"
+    tools:context=".Teacher.AddTask">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:paddingTop="20dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="30sp"
+                android:layout_alignParentStart="true"
+                android:textColor="@color/themeColor"
+                android:text="Assign \nTasks." />
+        </RelativeLayout>
+
+        <CheckBox
+            android:id="@+id/ch_subject1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:scaleX="1.80"
+            android:scaleY="1.80"
+            android:textColor="@color/textcolors"
+            android:textStyle="bold"
+            android:layout_marginTop="68dp"
+            android:text="@string/english"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/ch_subject2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textcolors"
+            android:textStyle="bold"
+            android:scaleX="1.80"
+            android:scaleY="1.80"
+            android:layout_marginStart="144dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/maths"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <CheckBox
+            android:id="@+id/ch_subject3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:scaleX="1.80"
+            android:scaleY="1.80"
+            android:backgroundTint="@color/whiteTextColor"
+            android:textColor="@color/textcolors"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:text="@string/science"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+        <CheckBox
+            android:id="@+id/ch_subject4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="144dp"
+            android:scaleX="1.80"
+            android:scaleY="1.80"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/textcolors"
+            android:textStyle="bold"
+            android:text="@string/history"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
+
+        <Button
+            android:id="@+id/addtask"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40sp"
+            android:text="@string/add_task1"
+             />
+    </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
