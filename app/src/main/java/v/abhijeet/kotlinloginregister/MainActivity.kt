@@ -1,20 +1,21 @@
 package v.abhijeet.kotlinloginregister
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main.*
+import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
 import v.abhijeet.kotlinloginregister.Student.StudentLogin
+import v.abhijeet.kotlinloginregister.Teacher.AddStudent
 import v.abhijeet.kotlinloginregister.Teacher.AddStudentandTask
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -35,7 +36,14 @@ class MainActivity : AppCompatActivity() {
 
         loginteacher.setOnClickListener { loginTechers() }
         loginstudent.setOnClickListener { loginStudents() }
+        addstudent.setOnClickListener{ addStudents()}
     }
+
+    private fun addStudents() {
+        val intent = Intent(this, AddStudent::class.java)
+        startActivity(intent)
+    }
+
     public override fun onStart() {
         super.onStart()
 
@@ -55,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun gotoStudent() {
-        val intent = Intent(this,Registration::class.java)
+        val intent = Intent(this, Registration::class.java)
         startActivity(intent)
     }
 
@@ -84,26 +92,34 @@ class MainActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
 
 
-                    Toast.makeText(baseContext, "Login Sucessfull.",
-                        Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        baseContext, "Login Sucessfull.",
+                        Toast.LENGTH_SHORT
+                    ).show()
 
-                    startActivity(Intent(this,AddStudentandTask::class.java))
+
+
+                    startActivity(Intent(this, AddStudentandTask::class.java))
                 } else {
 
 
-                    Toast.makeText(baseContext, "Authentication failed." + task.getException(),
-                        Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        baseContext, "Authentication failed." + task.getException(),
+                        Toast.LENGTH_LONG
+                    ).show()
 
                 }
 
                 // ...
             }
 
+
+
     }
 
     private fun loginStudents() {
 
-        val intent = Intent(this,StudentLogin::class.java)
+        val intent = Intent(this, StudentLogin::class.java)
         startActivity(intent)
 
     }

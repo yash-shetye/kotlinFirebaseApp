@@ -13,9 +13,15 @@ class AddStudentandTask : AppCompatActivity() {
 
         val addstudent = findViewById<Button>(R.id.addstudent_btn)
         val addtask = findViewById<Button>(R.id.addtask_btn)
+        val viewStud = findViewById<Button>(R.id.viewassign_btn)
 
         addstudent.setOnClickListener { gotoaddStudent() }
         addtask.setOnClickListener { gotoaddTask() }
+        viewStud.setOnClickListener { viewStudent() }
+    }
+
+    private fun viewStudent() {
+
     }
 
     private fun gotoaddTask() {

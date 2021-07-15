@@ -18,6 +18,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    defaultConfig {
+        buildConfigField("String", "secretcode", "\"9MHhf68N2T\"")
+    }
 
     buildTypes {
         release {
@@ -50,6 +53,7 @@ dependencies {
         // When using the BoM, you don't specify versions in Firebase library dependencies
         implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database:19.6.0'
+    implementation 'com.google.firebase:firebase-storage:19.2.1'
 
 
     testImplementation 'junit:junit:4.+'

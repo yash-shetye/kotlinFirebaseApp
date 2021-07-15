@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_add_student.*
 import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
@@ -21,6 +22,7 @@ class AddStudent : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_student)
 
+
         database = FirebaseDatabase.getInstance()
         reference = database.getReference("Students")
 
@@ -31,7 +33,6 @@ class AddStudent : AppCompatActivity() {
         addtaskbutton.setOnClickListener {
            //checkExistingUser()
             gotoasddtask() }
-
 
 
 
@@ -106,11 +107,23 @@ class AddStudent : AppCompatActivity() {
 
         var model = Studentdetails(studentname,standard,div,id)
 
+       // var user_class = Studentdetails()
+        val user = FirebaseAuth.getInstance().signInAnonymously()
+     //   val user = FirebaseAuth.getInstance().currentUser
+
+        //val ref = FirebaseDatabase.getInstance().getReference("Students")
+
+        //ref.child(user.uid).setValue(user_class)
 
 
       //var sid = reference.push().setValue(id)
+        if(user != null  ){
+            reference.child("9MHhf68N2T").child(user.toString()).child(id).setValue(model)
+        }else{
+            reference.child(id).setValue(model)
+        }
 
-        reference.child(id).setValue(model)
+
 
         val intent = Intent(this, AddTask::class.java)
        intent.putExtra("firebasekey1", id)

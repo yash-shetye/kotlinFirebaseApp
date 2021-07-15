@@ -51,4 +51,5 @@
     <string name="login_as_a_student">Login As a Student</string>
     <string name="student_naame">Student Name</string>
     <string name="assignments">Assignments</string>
+    <string name="upload_assignments">Upload Assignments</string>
 </resources>

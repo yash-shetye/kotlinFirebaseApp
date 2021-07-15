@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_add_student.*
-import kotlinx.android.synthetic.main.activity_add_task.*
-import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
+
 import v.abhijeet.kotlinloginregister.DatabaseModel.Taskdetails
 import v.abhijeet.kotlinloginregister.MainActivity
 import v.abhijeet.kotlinloginregister.R
@@ -39,33 +38,42 @@ class AddTask : AppCompatActivity() {
     private fun putData() {
 
 
-        var c1 = findViewById<CheckBox>(R.id.ch_subject1)
-        var c2 = findViewById<CheckBox>(R.id.ch_subject2)
-        var c3 = findViewById<CheckBox>(R.id.ch_subject3)
-        var c4 = findViewById<CheckBox>(R.id.ch_subject4)
+        val c1 = findViewById<CheckBox>(R.id.ch_subject1)
+        val c2 = findViewById<CheckBox>(R.id.ch_subject2)
+        val c3 = findViewById<CheckBox>(R.id.ch_subject3)
+        val c4 = findViewById<CheckBox>(R.id.ch_subject4)
 
-        var subject11 = c1.text.toString().trim()
-        var subject22 = c2.text.toString().trim()
-        var subject33 = c3.text.toString().trim()
-        var subject44 = c4.text.toString().trim()
-
-
-
-        var strUser: String? = intent.getStringExtra("firebasekey1")
-
-        var firekey = strUser.toString()
+        val subject11 = c1.text.toString().trim()
+        val subject22 = c2.text.toString().trim()
+        val subject33 = c3.text.toString().trim()
+        val subject44 = c4.text.toString().trim()
 
 
-        var task = Taskdetails()
 
+        val strUser: String? = intent.getStringExtra("firebasekey1")
+
+        val firekey = strUser.toString()
+
+
+        val task = Taskdetails()
+
+        val user = FirebaseAuth.getInstance().currentUser
        // var model = Taskdetails(subject1 ,subject2,subject3,subject4)
-       reference.child(firekey).setValue(task)
 
+        if(user != null  ){
+            reference.child(user.uid).child(firekey).setValue(task)
+        }else{
+            reference.child(firekey).setValue(task)
+        }
 
         if(c1.isChecked){
 
             task.subject1 = subject11
-            reference.child(firekey).setValue(task)
+            if(user != null  ){
+                reference.child(user.uid).child(firekey).setValue(task)
+            }else{
+                reference.child(firekey).setValue(task)
+            }
             Toast.makeText(baseContext, "Task added.",
                     Toast.LENGTH_LONG).show()
 
@@ -73,7 +81,11 @@ class AddTask : AppCompatActivity() {
         if(c2.isChecked){
 
             task.subject2  = subject22
-            reference.child(firekey).setValue(task)
+            if(user != null  ){
+                reference.child(user.uid).child(firekey).setValue(task)
+            }else{
+                reference.child(firekey).setValue(task)
+            }
             Toast.makeText(baseContext, "Task added.",
                     Toast.LENGTH_LONG).show()
 
@@ -81,7 +93,11 @@ class AddTask : AppCompatActivity() {
         if(c3.isChecked){
 
             task.subject3 = subject33
-            reference.child(firekey).setValue(task)
+            if(user != null  ){
+                reference.child(user.uid).child(firekey).setValue(task)
+            }else{
+                reference.child(firekey).setValue(task)
+            }
             Toast.makeText(baseContext, "Task added.",
                     Toast.LENGTH_LONG).show()
 
@@ -89,7 +105,11 @@ class AddTask : AppCompatActivity() {
         if(c4.isChecked){
 
             task.subject4 = subject44
-            reference.child(firekey).setValue(task)
+            if(user != null  ){
+                reference.child(user.uid).child(firekey).setValue(task)
+            }else{
+                reference.child(firekey).setValue(task)
+            }
             Toast.makeText(baseContext, "Task added.",
                     Toast.LENGTH_LONG).show()
 

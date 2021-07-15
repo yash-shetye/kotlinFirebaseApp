@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_student_login.*
 import v.abhijeet.kotlinloginregister.DatabaseModel.Studentdetails
@@ -20,7 +21,8 @@ class StudentLogin : AppCompatActivity() {
 
         val loginBtn = findViewById<Button>(R.id.studentlogin_btn)
         database = FirebaseDatabase.getInstance()
-        reference = database.getReference("Students")
+        val user = FirebaseAuth.getInstance().currentUser
+        reference = database.getReference("Students").child(user.uid)
 
         loginBtn.setOnClickListener { gotoStudentlogin() }
     }
