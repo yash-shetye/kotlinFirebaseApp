@@ -108,8 +108,8 @@ class AddStudent : AppCompatActivity() {
         var model = Studentdetails(studentname,standard,div,id)
 
        // var user_class = Studentdetails()
-        val user = FirebaseAuth.getInstance().signInAnonymously()
-     //   val user = FirebaseAuth.getInstance().currentUser
+       // val user = FirebaseAuth.getInstance().signInAnonymously()
+        val user = FirebaseAuth.getInstance().currentUser
 
         //val ref = FirebaseDatabase.getInstance().getReference("Students")
 
@@ -118,7 +118,8 @@ class AddStudent : AppCompatActivity() {
 
       //var sid = reference.push().setValue(id)
         if(user != null  ){
-            reference.child("9MHhf68N2T").child(user.toString()).child(id).setValue(model)
+         //   reference.child("9MHhf68N2T").child(user.toString()).child(id).setValue(model)
+            reference.child(user.uid).child(id).setValue(model)
         }else{
             reference.child(id).setValue(model)
         }
